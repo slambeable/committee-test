@@ -1,0 +1,40 @@
+@import '~/assets/style/colors.styl'
+
+#app .cash
+  height 148px
+  max-width 139px
+  margin-bottom 25px
+  margin-right 15px
+
+  &:nth-of-type(3)
+    max-width 206px
+
+    @media (max-width 568px)
+      margin 0 auto
+
+  &__deposit > p
+    margin-top 15px
+    margin-bottom 8px
+    text-align center
+    font-weight bold
+    font-size 25px
+    color main-color
+    white-space nowrap
+
+#app .coins-container
+  display flex
+  height 56px
+  justify-content center
+
+  &-wrapper
+    position relative
+    transform translate(-100%)
+    display inline-block
+    width 15px
+
+    &__coin
+      position absolute
+      display inline-block
+      width 55px
+      height 56px
+      background url('~/assets/images/money.svg') center no-repeat

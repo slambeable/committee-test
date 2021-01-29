@@ -1,0 +1,52 @@
+@import '~/assets/style/colors.styl'
+@import './input.css'
+
+#app .input-range
+  position relative
+  display flex
+  height 30px
+  margin-top 48px
+  justify-content space-between
+  align-items center
+  white-space nowrap
+
+  &__min
+  &__max
+    font-weight 500
+    font-size 18px
+
+  &-wrapper
+    position relative
+    width 100%
+    margin 0 15px
+
+  &-wrapper__input
+    &_disabled
+      pointer-events none
+
+  &-wrapper__bubble
+    position absolute
+    top -40px
+    --bubble-left 22px
+    left var(--bubble-left)
+    display none
+    width 69px
+    height 26px
+    font-weight 500
+    color important-text-color
+    text-align center
+    line-height 1.5
+    background main-color
+    border-radius 5px
+
+    &_show
+      display block
+
+    &::after
+      position absolute
+      bottom -13px
+      left 28px
+      border 7px solid transparent
+      border-top 7px solid main-color
+      content ''
+

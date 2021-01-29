@@ -1,0 +1,76 @@
+@import '~/assets/style/colors.styl'
+@import '~/assets/style/variables.styl'
+
+#app .start-block
+  height 180px
+
+  &__first-title
+    margin 0
+    font-size 22px
+    font-weight 500
+
+  &__description
+    margin-top 11px
+
+#app .end-block
+  display block
+  visibility hidden
+  height 0
+  opacity 0
+  transition opacity 1.5s ease-in-out
+
+  &_show
+    min-height 429px
+    height max-content
+    visibility visible
+    opacity 1
+
+  &__second-title
+    margin-bottom 24px
+    font-weight 500
+    font-size 22px
+    line-height 26px
+
+    & > .money
+      font-weight 500
+      font-size 22px
+
+  &-relocate
+    display flex
+    height 45px
+    margin-right 25px
+    justify-content center
+    align-items center
+
+    &__text
+      width 230px
+      text-align left
+      font-weight 500
+
+    &__button
+      width 134px
+      height 45px
+      border 0
+      border-radius 5px
+      background main-color
+      font-weight 500
+      color important-text-color
+      cursor pointer
+      outline none
+      -webkit-tap-highlight-color transparent
+      text-decoration none
+
+      &_touch
+        background darken(main-color, tone)
+
+      @media (hover hover) and (pointer fine)
+        &:hover
+          background darken(main-color, tone)
+
+#app .money-wrapper
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+
+  @media (max-width 568px)
+    justify-content space-evenly

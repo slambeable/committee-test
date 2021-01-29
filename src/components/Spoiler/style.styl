@@ -1,0 +1,96 @@
+@import '~/assets/style/colors.styl'
+
+#app .spoiler
+  height 67px
+  padding-top 24px
+  margin 26px -15px 25px -25px
+  text-align center
+  background spoiler-bg
+  box-sizing border-box
+
+  &-header
+    width max-content
+    margin 0 auto
+    color main-color
+    cursor pointer
+    user-select none
+    outline none
+
+    &__image
+      display inline-block
+      width 16px
+      height 7px
+      margin-left 15px
+      vertical-align middle
+      background url('~/assets/images/arrow.svg')
+
+    &::-webkit-details-marker
+      display none
+
+  &-element
+    display inline-block
+    width 200px
+    height 228px
+    margin-top 30px
+    transform rotateX(180deg)
+
+    &:nth-of-type(3)
+      width 297px
+
+    &__stash-percent
+      font-weight bold
+      font-size 20px
+      color main-color
+
+    &__stash-text
+      text-align center
+
+    &__stash-image
+      height 200px
+      width 200px
+      border-radius 50%
+      margin 0 auto
+      line-height 15
+      font-weight bold
+      font-size 22px
+      color main-color
+      background-color spoiler-image-bg
+      background-position center
+      background-repeat no-repeat
+
+      &_very-small
+        background-image url('~/assets/images/stash/very-small.svg')
+
+      &_small
+        background-image url('~/assets/images/stash/small.svg')
+
+      &_medium
+        background-image url('~/assets/images/stash/medium.svg')
+
+      &_large
+        background-image url('~/assets/images/stash/large.svg')
+
+      &_very-large
+        background-image url('~/assets/images/stash/very-large.svg')
+
+
+#app .spoiler_open
+  height 586px
+  transform scale(1, -1)
+
+  & .spoiler-header
+    transform scale(1, -1)
+
+    & .spoiler-header__image
+      transform scale(1, -1)
+
+  & .spoiler-element
+    transform scale(1, -1)
+
+  @media (max-width 400px)
+    height 850px
+
+.progress-ring__circle-progress
+  transition 1.5s stroke-dashoffset
+  transform rotate(-90deg)
+  transform-origin 50% 50%
