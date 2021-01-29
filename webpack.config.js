@@ -73,7 +73,7 @@ module.exports = {
   output: {
     filename: filename('.js'),
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '/stm-test/' : '/',
+    publicPath: isProd ? '/committee-test/' : '/',
   },
   optimization: optimization(),
   resolve: {
