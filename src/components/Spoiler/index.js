@@ -74,7 +74,7 @@ export default class Spoiler {
         setTimeout(setCircleProgress, 1, firstCircle, this.percent[0]);
         setTimeout(setCircleProgress, 1, secondCircle, this.percent[1]);
 
-        this.element.scrollIntoView({ behavior: 'smooth', block: 'top' });
+        this.element.scrollIntoView({ behavior: 'smooth' });
       } else {
         this.element.classList.remove('spoiler_open');
         this.element.removeAttribute('open');

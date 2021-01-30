@@ -62,7 +62,7 @@ export default class InputRange {
       element.classList.add('input-range-wrapper__input_disabled');
       bubble.classList.remove('input-range-wrapper__bubble_show');
 
-      endBlock.scrollIntoView({ behavior: 'smooth', block: 'top' });
+      endBlock.scrollIntoView({ behavior: 'smooth' });
     });
 
     element.addEventListener('input', ({ target }) => {
