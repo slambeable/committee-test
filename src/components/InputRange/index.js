@@ -33,6 +33,9 @@ export default class InputRange {
     const element = this.element.querySelector('.input-range-wrapper__input');
     const bubble = this.element.querySelector('.input-range-wrapper__bubble');
 
+    const cornerPositionAdjustment = 22;
+    const bubblePositionAdjustment = 0.95;
+
     element.addEventListener('change', ({ target }) => {
       const endBlock = this.container.parentNode.querySelector('.end-block');
       const secondTitleMoney = endBlock.querySelector('.end-block__second-title > .money');
@@ -59,13 +62,12 @@ export default class InputRange {
       element.classList.add('input-range-wrapper__input_disabled');
       bubble.classList.remove('input-range-wrapper__bubble_show');
 
-      const lastCash = endBlock.querySelector('.cash:last-child');
-      lastCash.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      endBlock.scrollIntoView({ behavior: 'smooth', block: 'top' });
     });
 
     element.addEventListener('input', ({ target }) => {
       const { valueAsNumber, max, offsetWidth: width } = target;
-      const bubblePosition = `${((valueAsNumber / (max / width)) * 0.95) - 22}px`;
+      const bubblePosition = `${((valueAsNumber / (max / width)) * bubblePositionAdjustment) - cornerPositionAdjustment}px`;
 
       bubble.classList.add('input-range-wrapper__bubble_show');
       bubble.textContent = valueAsNumber;
