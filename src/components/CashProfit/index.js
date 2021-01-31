@@ -45,19 +45,30 @@ export default class CashProfit {
   }
 
   render() {
-    this.container.insertAdjacentHTML('beforeend', template(
-      this.countOfCoins,
-      Math.floor(this.deposit),
-      this.description,
-      this.index,
-    ));
+    this.container
+      .insertAdjacentHTML(
+        'beforeend',
+        template(
+          this.countOfCoins,
+          Math.floor(this.deposit),
+          this.description,
+          this.index,
+        ),
+      );
 
-    this.element = [...this.container.querySelectorAll('.cash')][this.index];
-    const description = this.element.querySelector('.cash__description > p');
+    this.element = [
+      ...this.container
+        .querySelectorAll('.cash')][this.index];
+    const description = this.element
+      .querySelector('.cash__description > p');
 
     const hint = new Hint(description, hints[this.index]);
+
     hint.render();
-    hint.addHandlers(this.container, this.index);
+    hint.addHandlers(
+      this.container,
+      this.index,
+    );
 
     return this.element;
   }

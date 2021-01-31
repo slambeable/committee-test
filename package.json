@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "serve": "cross-env NODE_ENV=development webpack serve --host 192.168.0.81 --port 8080 --mode development",
+    "serve": "cross-env NODE_ENV=development webpack serve --host 192.168.123.6 --port 8080 --mode development",
     "lint:style": "stylelint src/*.{css,styl} --custom-syntax stylelint-plugin-stylus/custom-syntax --fix"
   },
   "keywords": [],

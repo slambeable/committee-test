@@ -31,4 +31,4 @@ export const chartsHeader = {
   openChart: 'Свернуть<span class="spoiler-header__image"></span>',
 };
 
-export const middleDepositsOfAllUsers = '15 240';
+export const middleDepositsOfAllUsers = 15240;

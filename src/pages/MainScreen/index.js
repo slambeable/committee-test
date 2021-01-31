@@ -13,10 +13,16 @@ export default class MainScreen {
   render() {
     smoothscroll.polyfill();
 
-    this.container.insertAdjacentHTML('beforeend', template());
-    this.element = this.container.querySelector('.main-screen');
+    this.container
+      .insertAdjacentHTML(
+        'beforeend',
+        template(),
+      );
+    this.element = this.container
+      .querySelector('.main-screen');
 
-    const element = this.element.querySelector('.start-block');
+    const element = this.element
+      .querySelector('.start-block');
 
     const inputRange = new InputRange(element);
     inputRange.render();
@@ -28,13 +34,17 @@ export default class MainScreen {
   }
 
   addHandlers() {
-    const element = this.element.querySelector('.end-block-relocate__button');
+    const element = this.element
+      .querySelector('.end-block-relocate__button');
 
     element.addEventListener('click', () => {
       window.open('https://alfabank.ru/make-money/investments/');
     });
 
-    mobileLogicForButton(element, 'end-block-relocate__button');
+    mobileLogicForButton(
+      element,
+      'end-block-relocate__button',
+    );
   }
 
   remove() {

@@ -1,4 +1,5 @@
 import { charts, chartsHeader, middleDepositsOfAllUsers } from '@/mixins/data';
+import { addSpaceAfterThreeSymbol } from '@/mixins/utils';
 import template from './template';
 import './style.styl';
 
@@ -18,30 +19,40 @@ export default class Spoiler {
     ];
   }
 
-  getIndexOfImage() {
-    if (this.value < 11000) return 0;
-    if (this.value < 21000) return 1;
-    if (this.value < 31000) return 2;
-    if (this.value < 41000) return 3;
+  static getIndexOfImage() {
+    if (middleDepositsOfAllUsers < 11000) return 0;
+    if (middleDepositsOfAllUsers < 21000) return 1;
+    if (middleDepositsOfAllUsers < 31000) return 2;
+    if (middleDepositsOfAllUsers < 41000) return 3;
     return 4;
   }
 
   render() {
-    this.container.insertAdjacentHTML('beforeend', template(
-      middleDepositsOfAllUsers,
-      this.averageSumOfAllUsersImages[this.getIndexOfImage()],
-      charts[0],
-      charts[1],
-    ));
-    this.element = this.container.querySelector('.spoiler');
+    this.container
+      .insertAdjacentHTML(
+        'beforeend',
+        template(
+          addSpaceAfterThreeSymbol(middleDepositsOfAllUsers),
+          this.averageSumOfAllUsersImages[Spoiler.getIndexOfImage()],
+          charts[0],
+          charts[1],
+        ),
+      );
+
+    this.element = this.container
+      .querySelector('.spoiler');
 
     return this.element;
   }
 
   addHandlers() {
-    const element = this.element.querySelector('.spoiler-header');
-    const firstCircle = this.element.querySelector('.progress-ring-first > .progress-ring__circle-progress');
-    const secondCircle = this.element.querySelector('.progress-ring-second > .progress-ring__circle-progress');
+    const element = this.element
+      .querySelector('.spoiler-header');
+    const firstCircle = this.element
+      .querySelector('.progress-ring-first > .progress-ring__circle-progress');
+    const secondCircle = this.element
+      .querySelector('.progress-ring-second > .progress-ring__circle-progress');
+
     const radius = firstCircle.r.baseVal.value;
     const circumference = radius * 2 * Math.PI;
 
@@ -65,24 +76,56 @@ export default class Spoiler {
     element.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (!this.element.classList.contains('spoiler_open')) {
-        this.element.classList.add('spoiler_open');
-        this.element.setAttribute('open', 'open');
+      if (!this.element
+        .classList
+        .contains('spoiler_open')) {
+        this.element
+          .classList
+          .add('spoiler_open');
+        this.element
+          .setAttribute(
+            'open',
+            'open',
+          );
 
         element.innerHTML = chartsHeader.openChart;
 
-        setTimeout(setCircleProgress, 1, firstCircle, this.percent[0]);
-        setTimeout(setCircleProgress, 1, secondCircle, this.percent[1]);
+        setTimeout(
+          setCircleProgress,
+          1,
+          firstCircle,
+          this.percent[0],
+        );
+        setTimeout(
+          setCircleProgress,
+          1,
+          secondCircle,
+          this.percent[1],
+        );
 
-        this.element.scrollIntoView({ behavior: 'smooth' });
+        this.element
+          .scrollIntoView({ behavior: 'smooth' });
       } else {
-        this.element.classList.remove('spoiler_open');
-        this.element.removeAttribute('open');
+        this.element
+          .classList
+          .remove('spoiler_open');
+        this.element
+          .removeAttribute('open');
 
         element.innerHTML = chartsHeader.closeChart;
 
-        setCircleProgress(firstCircle, 0);
-        setCircleProgress(secondCircle, 0);
+        setTimeout(
+          setCircleProgress,
+          1,
+          firstCircle,
+          0,
+        );
+        setTimeout(
+          setCircleProgress,
+          1,
+          secondCircle,
+          0,
+        );
       }
     });
   }

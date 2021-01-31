@@ -12,7 +12,11 @@ export default class Hint {
   }
 
   render() {
-    this.container.insertAdjacentHTML('beforeend', template(this.text));
+    this.container
+      .insertAdjacentHTML(
+        'beforeend',
+        template(this.text),
+      );
     this.element = this.container.querySelector('.hint');
 
     return this.element;
@@ -24,14 +28,19 @@ export default class Hint {
       : this.hintElements;
 
     this.hintElements.forEach((element) => {
-      element.classList.remove('hint__text_show');
+      element
+        .classList
+        .remove('hint__text_show');
     });
   }
 
   addHandlers(container, index) {
-    const buttonElement = this.element.querySelector('.hint__button');
-    const textElement = this.element.querySelector('.hint__text');
-    const app = document.querySelector('#app');
+    const buttonElement = this.element
+      .querySelector('.hint__button');
+    const textElement = this.element
+      .querySelector('.hint__text');
+    const app = document
+      .querySelector('#app');
 
     const getTopForText = (target) => {
       const textHeight = textElement.offsetHeight;
@@ -81,7 +90,10 @@ export default class Hint {
       }, true);
     }
 
-    mobileLogicForButton(buttonElement, 'hint__button');
+    mobileLogicForButton(
+      buttonElement,
+      'hint__button',
+    );
   }
 
   remove() {
